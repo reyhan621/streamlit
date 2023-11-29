@@ -2,4 +2,4 @@ matplotlib
 plotly-express
 scikit-learn
 streamlit-authenticator
-gsheets-connection
+streamlit_gsheets
