@@ -2,5 +2,5 @@ matplotlib
 plotly-express
 scikit-learn
 streamlit-authenticator
-st-gsheets-connection
+st_gsheets_connection
 kneed ==0.7.0
