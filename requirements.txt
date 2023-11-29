@@ -5,3 +5,7 @@ plotly-express
 pandas
 numpy
 streamlit
+streamlit-authenticator
+pickle
+matplotlib
+streamlit_gsheets
