@@ -1,4 +1,3 @@
 matplotlib
 plotly-express
-sklearn
-kmeans
+scikit
