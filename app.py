@@ -28,7 +28,7 @@ with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
 authenticator = stauth.Authenticate(names, usernames, hashed_passwords,
-    "sales_dashboard", "abcdef", cookie_expiry_days=30)
+    "sales_dashboard", "abcdef", cookie_expiry_days=10)
 
 name, authentication_status, username = authenticator.login("Login", "main")
 
@@ -133,21 +133,7 @@ if authentication_status:
 
     cols = list(penjualan_rfm.columns)
     cols.remove("Customer ID")
-    for col in cols:
-        col_zscore = col + '_zscore'
-        penjualan_rfm[col_zscore] = (penjualan_rfm[col] - penjualan_rfm[col].mean())/penjualan_rfm[col].std(ddof=0)
 
-
-    penjualan_rfm["Outlier"] = ((abs(penjualan_rfm["Monetary_zscore"])>3).astype(int) |
-                                (abs(penjualan_rfm["Frequency_zscore"])>3) |
-                                (abs(penjualan_rfm["Recency_zscore"])>3)).astype(int)
-
-    penjualan_rfm[penjualan_rfm["Outlier"] == 1].count()
-
-    outlier = penjualan_rfm[penjualan_rfm["Outlier"] == 1].index
-    penjualan_rfm.drop(outlier, inplace=True)
-
-    penjualan_rfm[penjualan_rfm["Outlier"] == 1].count()
     penjualan_rfm['Customer ID'].count()
 
     penjualan_rfm['recency_val'] = pd.qcut(penjualan_rfm['Recency'].rank(method="first"), q=3, labels=['1','2','3'])
