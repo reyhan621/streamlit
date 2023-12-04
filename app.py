@@ -208,9 +208,9 @@ if authentication_status:
 
         fig = px.scatter_3d(penjualan_rfm, x=x_val, y=y_val, z=z_val, color='ClusterLabels', labels='ClusterLabels', title="<b> RFM KMeans Clustering Customer Distribution</b>", color_continuous_scale='cividis')
         st.plotly_chart(fig,use_container_width=True,height=500)
-        st.write("Yellow : Loyal")
-        st.write("Blue  : Promising")
-        st.write("Gray : Need Attention")
+        st.write("Yellow : Promising")
+        st.write("Blue  : Need Attention")
+        st.write("Gray : Loyal")
 
     with col2:
         st.subheader("RFM")
