@@ -171,11 +171,11 @@ if authentication_status:
 
     def kmeans_level(df):
         if (df['ClusterLabels'] == 0):
-            return 'Promising'
-        elif (df['ClusterLabels'] == 1):
             return 'Need Attention'
-        elif (df['ClusterLabels'] == 2):
+        elif (df['ClusterLabels'] == 1):
             return 'Loyal'
+        elif (df['ClusterLabels'] == 2):
+            return 'Promising'
     penjualan_rfm['RFM with KMeans Level'] = penjualan_rfm.apply(kmeans_level, axis=1)
 
     loyal_kmeans = penjualan_rfm['RFM with KMeans Level'].value_counts()['Loyal']
