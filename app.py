@@ -208,9 +208,7 @@ if authentication_status:
 
         fig = px.scatter_3d(penjualan_rfm, x=x_val, y=y_val, z=z_val, color='ClusterLabels', labels='ClusterLabels', title="<b> RFM KMeans Clustering Customer Distribution</b>", color_continuous_scale='cividis')
         st.plotly_chart(fig,use_container_width=True,height=500)
-        st.write("Yellow : Promising")
-        st.write("Blue  : Need Attention")
-        st.write("Gray : Loyal")
+        st.write("Yellow : Promising, " "Blue  : Need Attention, " "Gray : Loyal")
 
     with col2:
         st.subheader("RFM")
@@ -221,10 +219,6 @@ if authentication_status:
 
 
     #movie_select_pie_format = pd.melt(movie_select_pie_format, id_vars=["presenter", "movie_name", "average_vote", "genre_name"], value_vars=["amount_wertvoll_1","amount_gut_2" ,"amount_okay_3", "amount_schlecht_4", "amount_grottig_5"], var_name="vote" ,value_name="value")
-
-
-    st.markdown("""---""")
-
 
 
 
@@ -275,7 +269,8 @@ if authentication_status:
         st.subheader("Category wise Sales")
         fig = px.bar(category_df, x = "Category", y="Sales", text=['${:,.2f}'.format(x) for x in category_df["Sales"]], template="seaborn")
         st.plotly_chart(fig,use_container_width=True, height=200)
-
+    st.markdown("##")
+    st.markdown("##")
     with col2:
         st.subheader("Region wise Sales")
         fig = px.pie(filtered_df, values ="Sales", names = "Region", hole=0.5)
