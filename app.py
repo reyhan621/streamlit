@@ -241,7 +241,7 @@ if authentication_status:
         df3 = df[df["Country"].isin(country)]
 
     #Create for State
-    state =st.sidebar.multiselect("Pick your State", df2["State"].unique())
+    state =st.sidebar.multiselect("Pick your State", df3["State"].unique())
 
     # Filter Data based on Region, Country, n City
 
